@@ -12,7 +12,7 @@ import Header from "./Header";
 const App = () => {
   return (
     <div className="ui container">
-      {/*using React-Router-DOM to navigate between components and show each one depends on the its path*/}
+      {/*using BrowserRouter to navigate between components and show each one depends on its path*/}
       <BrowserRouter>
         <div>
           <Header />
