@@ -17,9 +17,15 @@ export class GoogleAuth extends Component {
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
           this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+          // To update the rendered message in the UI without refreshing the page
+          this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   }
+
+  onAuthChange = () => {
+    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  };
 
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
